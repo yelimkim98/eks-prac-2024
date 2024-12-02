@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/eksworkdb?serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false&zeroDateTimeBehavior=convertToNull&cacheDefaultTimezone=false'
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
