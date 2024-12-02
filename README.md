@@ -1,18 +1,15 @@
 # 설명
-- EKS CI/CD 연습
+- EKS 배포 연습
 
-<br/>
 
 # 구조
 - DB : AWS RDS, MySQL
 - 이미지 저장소 : Docker HUB
-- 배포 도구 : Github Action
-- 서버 : AWS ECS
+- 서버 : AWS EKS
 
-<br/>
 
 # 실행 가이드
-### windows cmd에서 실행하기
+## windows cmd에서 실행하기
 ```bash
 # 환경변수 설정
 set RDS_USER=유저명
@@ -28,7 +25,7 @@ gradlew clean build
 # -D 옵션으로 환경변수 설정
 java -jar -DRDS_USER=유저명 -DRDS_PASSWORD=패스워드 build/libs/public-cloud-exam-2024-0.0.1-SNAPSHOT.jar
 ```
-### Dockerfile 이용해서 컨테이너로 실행하기
+## Dockerfile 이용해서 컨테이너로 실행하기
 1. docker desktop 실행
 2. 프로젝트 빌드
     - 프로젝트루트/build/libs에 jar 파일이 잘 생성됐는지 확인
@@ -63,7 +60,7 @@ java -jar -DRDS_USER=유저명 -DRDS_PASSWORD=패스워드 build/libs/public-clo
    docker logs 컨테이너이름또는ID
    ```
 
-### Docker HUB로 이미지 업로드
+## Docker HUB로 이미지 업로드
 ```bash
 # image build
 docker buildx build --tag test1:latest --output=type=docker .
@@ -75,9 +72,4 @@ docker images
 # 이미지 push
 docker tag test1 kiel0103/eks-prac-2024:latest
 docker push kiel0103/eks-prac-2024:latest
-```
-
-### 원격 이미지로 EKS 배포
-```bash
-
 ```
