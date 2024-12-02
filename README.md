@@ -48,22 +48,36 @@ java -jar -DRDS_USER=유저명 -DRDS_PASSWORD=패스워드 build/libs/public-clo
    프로젝트 루트에서 수행
    ```bash
    # image build
-   docker buildx build --tag test1:latest .
+   docker buildx build --tag test1:latest --output=type=docker .
    
    # 빌드된 이미지 확인
    # test1:latest 이미지가 생긴 것을 확인할 수 있다.
    docker images
    
    # 컨테이너 띄우기
-   docker run -e RDS_USER=유저명 -e RDS_PASSWORD=패스워드 -p 8080:8080 test1:latest
+   docker run -e RDS_USER=유저명 -e RDS_PASSWORD=패스워드 -e SPRING_PROFILE=local -p 8080:8080 test1:latest
    ```
 
 4. (문제있을 경우) 컨테이너 로그 확인
-   ```bash
+   ```bas
    docker logs 컨테이너이름또는ID
    ```
 
-### Docker HUB 로부터 pull 받아서 컨테이너로 실행하기
+### Docker HUB로 이미지 업로드
 ```bash
-docker run -d -p 원하는포트:8080 -e RDS_USER=유저명 -e RDS_PASSWORD=패스워드 kiel0103/eks-prac-2024:태그
+# image build
+docker buildx build --tag test1:latest --output=type=docker .
+
+# 빌드된 이미지 확인
+# test1:latest 이미지가 생긴 것을 확인할 수 있다.
+docker images
+
+# 이미지 push
+docker tag test1 kiel0103/eks-prac-2024:latest
+docker push kiel0103/eks-prac-2024:latest
+```
+
+### 원격 이미지로 EKS 배포
+```bash
+
 ```
