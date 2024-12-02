@@ -32,11 +32,23 @@ java -jar -DRDS_USER=유저명 -DRDS_PASSWORD=패스워드 build/libs/public-clo
 1. docker desktop 실행
 2. 프로젝트 빌드
     - 프로젝트루트/build/libs에 jar 파일이 잘 생성됐는지 확인
+   ```bash
+   # 환경변수 설정
+   set RDS_USER=유저명
+   set RDS_PASSWORD=패스워드값
+   
+   # 환경변수 설정 잘 됐는지 확인
+   echo %RDS_USER%
+   echo %RDS_PASSWORD%
+   
+   # 프로젝트 빌드
+   gradlew clean build
+   ```
 3. Dockerfile로 image build
    프로젝트 루트에서 수행
    ```bash
    # image build
-   docker build -t test1:latest .
+   docker buildx build --tag test1:latest .
    
    # 빌드된 이미지 확인
    # test1:latest 이미지가 생긴 것을 확인할 수 있다.
