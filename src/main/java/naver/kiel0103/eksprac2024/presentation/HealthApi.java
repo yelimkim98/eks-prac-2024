@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import naver.kiel0103.eksprac2024.presentation.dto.HealthDto;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins="*", allowedHeaders = "*")
 public class HealthApi {
 
     private static final Logger LOGGER = Logger.getLogger(HealthApi.class.getName());
