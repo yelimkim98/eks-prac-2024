@@ -44,7 +44,7 @@ java -jar -DRDS_USER=유저명 -DRDS_PASSWORD=패스워드 build/libs/public-clo
    # 프로젝트 빌드
    gradlew clean build
    ```
-3. Dockerfile로 image build
+3. Dockerfile로 image build 및 컨테이너 띄우기
    프로젝트 루트에서 수행
    ```bash
    # image build
@@ -53,13 +53,12 @@ java -jar -DRDS_USER=유저명 -DRDS_PASSWORD=패스워드 build/libs/public-clo
    # 빌드된 이미지 확인
    # test1:latest 이미지가 생긴 것을 확인할 수 있다.
    docker images
-   ```
-4. 컨테이너 띄우기
-   ```bash
+   
+   # 컨테이너 띄우기
    docker run -e RDS_USER=유저명 -e RDS_PASSWORD=패스워드 -p 8080:8080 test1:latest
    ```
 
-5. (문제있을 경우) 컨테이너 로그 확인
+4. (문제있을 경우) 컨테이너 로그 확인
    ```bash
    docker logs 컨테이너이름또는ID
    ```
