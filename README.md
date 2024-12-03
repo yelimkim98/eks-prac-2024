@@ -3,9 +3,9 @@
 
 
 # 구조
-- DB : AWS RDS, MySQL
-- 이미지 저장소 : Docker HUB
-- 서버 : AWS EKS
+- DB : AWS RDS, MySQL / PostgreSQL
+- 이미지 저장소 : Docker HUB / ECR
+- 웹 서버 배포 : AWS EKS
 
 
 # 실행 가이드
